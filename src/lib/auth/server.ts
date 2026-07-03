@@ -14,4 +14,11 @@ export const auth = betterAuth({
     updateAge: 60 * 60 * 24, // 1 day
   },
   baseURL: process.env.BETTER_AUTH_URL || "https://fitforge-health.vercel.app",
+  trustedOrigins: ["https://fitforge-health.vercel.app"],
+  advanced: {
+    defaultCookieAttributes: {
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    }
+  }
 })
