@@ -28,8 +28,16 @@ export function LoginForm() {
       })
       
       if (result.error) {
+        console.error("Login result error:", result.error)
         toast.error(result.error.message || "Failed to login")
       } else {
+        // -- TEMPORARY DEBUG LOGGING --
+        console.log("=== CLIENT AUTH DEBUG ===")
+        console.log("Login result data:", result.data)
+        console.log("Cookie present in browser:", document.cookie.includes("session_token"))
+        console.log("Raw cookie string length:", document.cookie.length)
+        console.log("=========================")
+
         toast.success("Successfully logged in!")
         router.push("/dashboard")
         router.refresh()
