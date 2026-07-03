@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth"
 import { prismaAdapter } from "better-auth/adapters/prisma"
 import { prisma } from "@/lib/db/prisma"
+import { nextCookies } from "better-auth/next-js"
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
@@ -20,5 +21,8 @@ export const auth = betterAuth({
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
     }
-  }
+  },
+  plugins: [
+    nextCookies()
+  ]
 })
