@@ -40,7 +40,6 @@ export function LoginForm() {
 
         toast.success("Successfully logged in!")
         router.push("/dashboard")
-        router.refresh()
       }
     } catch (err: any) {
       toast.error(err.message || "Something went wrong")

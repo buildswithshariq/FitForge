@@ -14,7 +14,9 @@ export const auth = betterAuth({
     expiresIn: 60 * 60 * 24 * 7, // 7 days
     updateAge: 60 * 60 * 24, // 1 day
   },
-  baseURL: process.env.BETTER_AUTH_URL || "https://fitforge-health.vercel.app",
+  baseURL: process.env.NODE_ENV === "production"
+    ? "https://fitforge-health.vercel.app"
+    : (process.env.BETTER_AUTH_URL || "http://localhost:3000"),
   trustedOrigins: ["https://fitforge-health.vercel.app"],
   advanced: {
     defaultCookieAttributes: {

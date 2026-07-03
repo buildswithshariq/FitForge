@@ -34,7 +34,6 @@ export function SignupForm() {
       } else {
         toast.success("Account created successfully!")
         router.push("/profile/setup")
-        router.refresh()
       }
     } catch (err: any) {
       toast.error(err.message || "Something went wrong")
