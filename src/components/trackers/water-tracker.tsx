@@ -55,7 +55,7 @@ export function WaterTracker({ consumed, goal }: WaterTrackerProps) {
       <CardContent className="flex flex-col gap-6">
         <div className="flex flex-col items-center justify-center gap-2">
           <div className="relative flex h-32 w-32 items-center justify-center">
-            <svg className="absolute inset-0 h-full w-full -rotate-90" viewBox="0 0 128 128">
+            <svg className="absolute inset-0 h-full w-full -rotate-90 transform-gpu" viewBox="0 0 128 128">
               {/* Background track */}
               <circle
                 className="text-muted stroke-current"
