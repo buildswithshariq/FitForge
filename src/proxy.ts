@@ -14,7 +14,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.next()
   }
 
-  const sessionCookie = request.cookies.get("better-auth.session_token")
+  const sessionCookie = request.cookies.get("better-auth.session_token") || request.cookies.get("__Secure-better-auth.session_token")
 
   if (!sessionCookie) {
     const loginUrl = new URL("/login", request.url)
